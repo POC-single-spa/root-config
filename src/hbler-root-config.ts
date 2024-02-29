@@ -1,11 +1,27 @@
-import { registerApplication, start, LifeCycles } from "single-spa";
+import { registerApplication, start } from "single-spa";
+import {
+  constructApplications,
+  constructRoutes,
+  constructLayoutEngine,
+} from "single-spa-layout";
+import microfrontendLayout from "./microfrontend-layout.html";
 
-registerApplication({
-  name: "@hbler/main-layout",
-  app: () => System.import<LifeCycles>("@hbler/main-layout"),
-  activeWhen: ["/"],
+const routes = constructRoutes(microfrontendLayout);
+const applications = constructApplications({
+  routes,
+  loadApp({ name }) {
+    return System.import(name);
+  },
+});
+const layoutEngine = constructLayoutEngine({
+  routes,
+  applications,
+  active: false,
 });
 
-start({
-  urlRerouteOnly: true,
+applications.forEach(registerApplication);
+
+System.import("@hbler/style").then(() => {
+  layoutEngine.activate();
+  start();
 });
