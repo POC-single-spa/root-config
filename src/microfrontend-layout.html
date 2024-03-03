@@ -6,11 +6,13 @@
 
   -->
 
-
-
   <main>
+    <h1>Header</h1>
     <route default>
       <application name="@hbler/product-listing"></application>
+    </route>
+    <route path="product/:id">
+      <application name="@hbler/product-page"></application>
     </route>
   </main>
 </single-spa-router>
