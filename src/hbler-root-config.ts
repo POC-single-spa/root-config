@@ -21,7 +21,7 @@ const layoutEngine = constructLayoutEngine({
 
 applications.forEach(registerApplication);
 
-System.import("@hbler/style").then(() => {
+System.import("@hbler/api").then(() => {
   layoutEngine.activate();
   start();
 });
