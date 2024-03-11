@@ -38,8 +38,8 @@
           "single-spa": "https://cdn.jsdelivr.net/npm/single-spa@5.9.0/lib/system/single-spa.min.js",
           "react": "https://unpkg.com/react@18/umd/react.production.min.js",
           "react-dom": "https://unpkg.com/react-dom@18/umd/react-dom.production.min.js",
-          "@hbler/api": "//localhost:8080/hbler-api.js",
-          "@hbler/style": "//localhost:8081/hbler-style.js"
+          "@hbler/api": "//localhost:9001/hbler-api.js",
+          "@hbler/style": "//localhost:9002/hbler-style.js"
         }
       }
     </script>
@@ -57,9 +57,10 @@
       {
         "imports": {
           "@hbler/root-config": "//localhost:9000/hbler-root-config.js",
+          "@hbler/header": "//localhost:8080/hbler-header.js",
+          "@hbler/cart": "//localhost:8081/hbler-cart.js",
           "@hbler/product-listing": "//localhost:8082/hbler-product-listing.js",
-          "@hbler/product-page": "//localhost:8083/hbler-product-page.js",
-          "@hbler/cart": "//localhost:8084/hbler-cart.js"
+          "@hbler/product-page": "//localhost:8083/hbler-product-page.js"
         }
       }
     </script>

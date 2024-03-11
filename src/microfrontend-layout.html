@@ -6,14 +6,14 @@
 
   -->
 
-  <main>
-    <h1>Header</h1>
-    <route default>
+  <application name="@hbler/header"></application>
+  <route default>
+    <main class="flex justify-between gap-6">
       <application name="@hbler/product-listing"></application>
       <application name="@hbler/cart"></application>
-    </route>
-    <route path="product/:id">
-      <application name="@hbler/product-page"></application>
-    </route>
-  </main>
+    </main>
+  </route>
+  <route path="product/:id">
+    <application name="@hbler/product-page"></application>
+  </route>
 </single-spa-router>
